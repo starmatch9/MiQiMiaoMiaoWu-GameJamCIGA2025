@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class StaticMembers : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static bool canClick = false;
+
+    public static void ClickBeTrue()
     {
-        
+        canClick = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void ClickBeFalse()
     {
-        
+        canClick = false;
     }
+
 }
