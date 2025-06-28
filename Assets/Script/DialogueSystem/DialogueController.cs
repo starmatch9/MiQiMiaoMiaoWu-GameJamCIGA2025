@@ -30,12 +30,14 @@ public class DialogueController : MonoBehaviour
             currentLine++;
             if (currentLine < Lines.Length)
             {
+                StaticMembers.ClickBeFalse();
                 ShowDialogue(currentLine);
                 PlaySound();
             }
             else
             {
                 dialogueBox.SetActive(false);
+                StaticMembers.ClickBeTrue();
             }
         }
     }

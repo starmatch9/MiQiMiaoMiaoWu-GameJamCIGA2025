@@ -24,7 +24,8 @@ public class BubbleShow : MonoBehaviour
     private void Start()
     {
         obj = GetComponent<GameObject>();
-        bubble = transform.Find("Bubble").gameObject;
+        Transform bubbleTransform = transform.Find("Bubble");
+        bubble = bubbleTransform != null ? bubbleTransform.gameObject : null;
     }
 
     void PlaySound()
