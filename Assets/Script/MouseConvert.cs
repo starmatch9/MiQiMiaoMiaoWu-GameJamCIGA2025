@@ -126,21 +126,79 @@ public class MouseConvert : MonoBehaviour
         //让他移动到指定位置
         duration = 1f;//动画持续时间
         elapsedTime = 0f;
-
-        Vector2 newPosition = new Vector2(809, 427);
-
+        Vector2 newPosition1 = new Vector2(273, 426);
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
-            cursorImage.anchoredPosition = Vector2.Lerp(centerPosition, newPosition, t);
+            cursorImage.anchoredPosition = Vector2.Lerp(centerPosition, newPosition1, t);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         cursorImage.sizeDelta = originalSize;
 
+        yield return new WaitForSeconds(1f);
+
+        //让他移动到指定位置
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition2 = new Vector2(405, 426);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition1, newPosition2, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
+
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition3 = new Vector2(542, 426);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition2, newPosition3, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
+
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition4 = new Vector2(678, 426);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition3, newPosition4, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
 
 
-        isFollowingRealMouse = true;
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition5 = new Vector2(829, 21);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition4, newPosition5, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
+
+
+
+        //isFollowingRealMouse = true;
     }
 
 }

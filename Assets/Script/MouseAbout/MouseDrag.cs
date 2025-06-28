@@ -120,10 +120,37 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 image.enabled = false;
             }
         }
-        //是遥控器的话的话
+        //是遥控器的话
         if (gameObject.name == "yaokongqi")
         {
             if (hit != null && hit.gameObject.name == "TV")
+            {
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+            }
+        }
+        //是胶带的话
+        if (gameObject.name == "jiaodai")
+        {
+            GameObject fishhh = null;
+
+            Transform parent = transform.parent;
+            if (parent != null)
+            {
+                foreach (Transform child in parent)
+                {
+                    if (child.name == "fish" && child != transform) // 确保不是自己
+                    {
+                        Debug.Log("找到fish物体: " + child.gameObject.name);
+                        //使用child.gameObject进行后续操作
+                        fishhh = child.gameObject;
+                        break;
+                    }
+                }
+            }
+            Image image = fishhh.GetComponent<Image>();
+
+            if (hit != null && hit.gameObject.name == "YZ" && !image.isActiveAndEnabled)
             {
                 BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
                 StartCoroutine(bubble.ShowBubble());

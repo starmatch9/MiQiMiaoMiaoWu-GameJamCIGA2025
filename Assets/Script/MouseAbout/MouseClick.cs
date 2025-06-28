@@ -35,6 +35,17 @@ public class MouseClick : MonoBehaviour
                 hit.enabled = false;
             }
 
+            if (hit != null && hit.gameObject.name == "BZ")
+            {
+                PlaySound();
+
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+                hit.enabled = false;
+            }
+
+
+
             if (hit != null && hit.gameObject.name == "MTSZ")
             {
 
@@ -48,6 +59,19 @@ public class MouseClick : MonoBehaviour
                 image.enabled = false;
 
                 madongshaizi.SetActive(true);
+
+            }
+
+            if (hit != null && hit.gameObject.name == "GuiZi")
+            {
+
+                PlaySound();
+
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+                hit.enabled = false;
+
+                yaokongqi.SetActive(true);
 
             }
         }
