@@ -110,14 +110,25 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         //是鱼的话
         if (gameObject.name == "fish")
         {
-            if (hit != null && hit.gameObject.name == "TEST")
+            if (hit != null && hit.gameObject.name == "niannianyouyu")
             {
-                Debug.Log("鼠标拿着鱼，点击了 2D 对象 TEST");
+                //Debug.Log("鼠标拿着鱼，点击了 2D 对象 TEST");
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+
+                Image image = gameObject.GetComponent<Image>();
+                image.enabled = false;
+            }
+        }
+        //是遥控器的话的话
+        if (gameObject.name == "yaokongqi")
+        {
+            if (hit != null && hit.gameObject.name == "TV")
+            {
                 BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
                 StartCoroutine(bubble.ShowBubble());
             }
         }
-
 
     }
 }
