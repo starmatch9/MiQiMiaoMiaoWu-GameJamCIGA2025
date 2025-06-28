@@ -21,7 +21,7 @@ public class MouseClick : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && A.StaticMembers.doIt())
         {
-            Debug.Log("咖啡还是" + A.StaticMembers.doIt());
+            //Debug.Log("咖啡还是" + A.StaticMembers.doIt());
 
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hit = Physics2D.OverlapPoint(mousePos);
@@ -44,6 +44,25 @@ public class MouseClick : MonoBehaviour
                 hit.enabled = false;
             }
 
+            if (hit != null && hit.gameObject.name == "XYJ")
+            {
+                PlaySound();
+
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+                hit.enabled = false;
+
+                a1.SetActive(true);
+            }
+
+            if (hit != null && hit.gameObject.name == "YG")
+            {
+                PlaySound();
+
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+                hit.enabled = false;
+            }
 
 
             if (hit != null && hit.gameObject.name == "MTSZ")
@@ -73,6 +92,21 @@ public class MouseClick : MonoBehaviour
 
                 yaokongqi.SetActive(true);
 
+            }
+
+            if (hit != null && hit.gameObject.name == "Fish")
+            {
+
+                PlaySound();
+
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+                hit.enabled = false;
+
+                SpriteRenderer image = hit.gameObject.GetComponent<SpriteRenderer>();
+                image.enabled = false;
+
+                fish.SetActive(true);
             }
         }
     }

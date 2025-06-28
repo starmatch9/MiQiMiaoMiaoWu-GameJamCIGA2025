@@ -223,8 +223,8 @@ public class MouseConvert : MonoBehaviour
         cursorImage.sizeDelta = originalSize;
 
         yield return new WaitForSeconds(1f);
-        //Animator animator4 = item4.GetComponent<Animator>();
-        //animator4.enabled = true;
+        Animator animator4 = item4.GetComponent<Animator>();
+        animator4.enabled = true;
 
 
         duration = 0.5f;//动画持续时间

@@ -159,5 +159,36 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
             }
         }
 
+        //是马桶筛子的话
+        if (gameObject.name == "matongshaizi")
+        {
+            if (hit != null && hit.gameObject.name == "MT")
+            {
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+            }
+
+
+            GameObject JD = null;
+
+            Transform parent = transform.parent;
+            if (parent != null)
+            {
+                foreach (Transform child in parent)
+                {
+                    if (child.name == "jiaodai" && child != transform) // 确保不是自己
+                    {
+                        //Debug.Log("到fish物体: " + child.gameObject.name);
+                        //使用child.gameObject进行后续操作
+                        JD = child.gameObject;
+                        break;
+                    }
+                }
+            }
+            JD.SetActive(true);
+
+
+        }
+
     }
 }
