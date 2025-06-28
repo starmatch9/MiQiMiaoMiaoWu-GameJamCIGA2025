@@ -42,7 +42,6 @@ public class BubbleShow : MonoBehaviour
     public IEnumerator ShowBubble()
     {
         A.StaticMembers.ClickBeFalse();
-        Debug.Log("");
 
         if (dialogue1 != null)
         {
@@ -109,7 +108,6 @@ public class BubbleShow : MonoBehaviour
         }
 
         A.StaticMembers.ClickBeTrue();
-        Debug.Log("");
 
         yield return new WaitForSeconds(1f);
         isDone = true;

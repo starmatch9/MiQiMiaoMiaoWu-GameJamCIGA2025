@@ -14,6 +14,8 @@ public class MouseConvert : MonoBehaviour
 
     public AudioSource BGM;
 
+    public Image cover;
+
     public GameObject item1;
     public GameObject item2;
     public GameObject item3;
@@ -91,7 +93,6 @@ public class MouseConvert : MonoBehaviour
         }
         //持续时间结束
         BGM.volume = 0.3f;
-
     }
 
     public IEnumerator Display()
@@ -238,9 +239,19 @@ public class MouseConvert : MonoBehaviour
         }
         cursorImage.sizeDelta = originalSize;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
 
 
+        elapsedTime = 0f;
+        cover.transform.gameObject.SetActive(true);
+        while (elapsedTime < 6f)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 6f);
+            cover.color = new Color(0, 0, 0, alpha);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cover.color = Color.black;
 
         //isFollowingRealMouse = true;
     }
