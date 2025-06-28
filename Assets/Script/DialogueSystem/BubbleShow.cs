@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BubbleShow : MonoBehaviour
 {
+    public bool isDone = false;
+
+
     //物体本身
     private GameObject obj;
 
@@ -98,7 +101,7 @@ public class BubbleShow : MonoBehaviour
             dialogue2.SetActive(true);
         }
 
-        
-
+        yield return new WaitForSeconds(2f);
+        isDone = true;
     }
 }
