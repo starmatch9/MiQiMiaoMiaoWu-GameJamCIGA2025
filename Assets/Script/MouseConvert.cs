@@ -12,6 +12,8 @@ public class MouseConvert : MonoBehaviour
     public AudioClip sound;
     public AudioSource audioSource;
 
+    public AudioSource BGM;
+
     public GameObject item1;
     public GameObject item2;
     public GameObject item3;
@@ -68,6 +70,28 @@ public class MouseConvert : MonoBehaviour
     public void test()
     {
         StartCoroutine(Display());
+    }
+
+    public IEnumerator PlayBGM()
+    {
+        //运行时间，用于累加
+        float elapsedTime = 0f;
+        //初始音量
+        BGM.volume = 0;
+        //自动播放音乐
+        BGM.Play();
+        while (elapsedTime < 10f)
+        {
+            //按照百分比从0到1插值
+            float alpha = Mathf.Lerp(0f, 0.3f, elapsedTime / 10f);
+            BGM.volume = alpha;
+            elapsedTime += Time.deltaTime;
+            //等待下一帧
+            yield return null;
+        }
+        //持续时间结束
+        BGM.volume = 0.3f;
+
     }
 
     public IEnumerator Display()
@@ -130,6 +154,8 @@ public class MouseConvert : MonoBehaviour
             yield return null;
         }
         cursorImage.sizeDelta = originalSize;
+
+        StartCoroutine(PlayBGM());
 
         //让他移动到指定位置
         duration = 1f;//动画持续时间

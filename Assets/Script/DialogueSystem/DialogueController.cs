@@ -16,6 +16,8 @@ public class DialogueController : MonoBehaviour
     public AudioClip sound;
     public AudioSource audioSource;
 
+/*    private bool hasChange = false;*/
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +29,14 @@ public class DialogueController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            A.StaticMembers.ClickBeFalse();
-            Debug.Log("");
+/*            if (!hasChange) {
+                A.StaticMembers.ClickBeFalse();
+                Debug.Log("");
+
+                hasChange = true;
+
+            }*/
+
 
             currentLine++;
             if (currentLine < Lines.Length)
@@ -39,7 +47,11 @@ public class DialogueController : MonoBehaviour
             else
             {
                 dialogueBox.SetActive(false);
-                A.StaticMembers.ClickBeTrue();
+                /*                A.StaticMembers.ClickBeTrue();
+                                hasChange = false;*/
+
+/*                A.StaticMembers.ClickBeTrue();
+                Debug.Log("");*/
             }
         }
     }

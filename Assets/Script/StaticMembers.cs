@@ -16,6 +16,12 @@ namespace A
         }
 
         public static bool canClick = true;
+
+        public static bool doIt()
+        {
+            return StaticMembers.canClick;
+        }
+
         public static void ClickBeTrue()
         {
             StaticMembers.canClick = true;

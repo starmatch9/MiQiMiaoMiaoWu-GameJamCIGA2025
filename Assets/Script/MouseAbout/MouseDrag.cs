@@ -73,9 +73,11 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         rectTransform.anchoredPosition = originalPosition;
 
         //以下代码检测是否点击到对应位置
-        Match();
+        if (A.StaticMembers.doIt())
+        {
+            Match();
 
-
+        }
     }
 
     //更新图标的位置

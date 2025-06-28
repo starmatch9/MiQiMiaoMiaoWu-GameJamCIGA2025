@@ -41,7 +41,8 @@ public class BubbleShow : MonoBehaviour
 
     public IEnumerator ShowBubble()
     {
-        
+        A.StaticMembers.ClickBeFalse();
+        Debug.Log("");
 
         if (dialogue1 != null)
         {
@@ -57,9 +58,6 @@ public class BubbleShow : MonoBehaviour
 
         if(bubble != null)
         {
-            A.StaticMembers.ClickBeFalse();
-            Debug.Log("");
-
 
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             if (XingTai1 != null)
@@ -91,17 +89,29 @@ public class BubbleShow : MonoBehaviour
                 animator.SetBool("run", true);
 
             }
-
-            A.StaticMembers.ClickBeTrue();
-            Debug.Log("");
         }
+
+/*        A.StaticMembers.ClickBeTrue();
+        Debug.Log("");*/
 
         if (dialogue2 != null)
         {
+/*            A.StaticMembers.ClickBeFalse();
+            Debug.Log("");*/
+
+
             dialogue2.SetActive(true);
+
+            while (dialogue2.activeInHierarchy)
+            {
+                yield return null; //每帧检查一次
+            }
         }
 
-        yield return new WaitForSeconds(2f);
+        A.StaticMembers.ClickBeTrue();
+        Debug.Log("");
+
+        yield return new WaitForSeconds(1f);
         isDone = true;
     }
 }
