@@ -19,8 +19,10 @@ public class MouseClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && StaticMembers.canClick)
+        if (Input.GetMouseButtonDown(0) && A.StaticMembers.canClick)
         {
+            Debug.Log("");
+
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Collider2D hit = Physics2D.OverlapPoint(mousePos);
 

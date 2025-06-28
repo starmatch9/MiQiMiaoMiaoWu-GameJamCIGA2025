@@ -3,21 +3,29 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public static class StaticMembers
+
+namespace A
 {
-    public static bool canClick = true;
-    static StaticMembers()
+    public static class StaticMembers
     {
-        canClick = true;
-    }
-    public static void ClickBeTrue()
-    {
-        canClick = true;
-    }
+        // 确保在Unity初始化时重置
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        static void Init()
+        {
+            StaticMembers.canClick = true;
+        }
 
-    public static void ClickBeFalse()
-    {
-        canClick = false;
-    }
+        public static bool canClick = true;
+        public static void ClickBeTrue()
+        {
+            StaticMembers.canClick = true;
+        }
 
+        public static void ClickBeFalse()
+        {
+            StaticMembers.canClick = false;
+        }
+
+    }
 }
+

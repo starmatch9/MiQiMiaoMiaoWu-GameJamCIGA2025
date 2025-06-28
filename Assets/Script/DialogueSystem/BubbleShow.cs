@@ -38,6 +38,7 @@ public class BubbleShow : MonoBehaviour
 
     public IEnumerator ShowBubble()
     {
+        
 
         if (dialogue1 != null)
         {
@@ -53,6 +54,10 @@ public class BubbleShow : MonoBehaviour
 
         if(bubble != null)
         {
+            A.StaticMembers.ClickBeFalse();
+            Debug.Log("");
+
+
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             if (XingTai1 != null)
             {
@@ -84,11 +89,16 @@ public class BubbleShow : MonoBehaviour
 
             }
 
+            A.StaticMembers.ClickBeTrue();
+            Debug.Log("");
         }
 
-        if(dialogue2 != null)
+        if (dialogue2 != null)
         {
             dialogue2.SetActive(true);
         }
+
+        
+
     }
 }

@@ -27,17 +27,19 @@ public class DialogueController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            A.StaticMembers.ClickBeFalse();
+            Debug.Log("");
+
             currentLine++;
             if (currentLine < Lines.Length)
             {
-                StaticMembers.ClickBeFalse();
                 ShowDialogue(currentLine);
                 PlaySound();
             }
             else
             {
                 dialogueBox.SetActive(false);
-                StaticMembers.ClickBeTrue();
+                A.StaticMembers.ClickBeTrue();
             }
         }
     }
