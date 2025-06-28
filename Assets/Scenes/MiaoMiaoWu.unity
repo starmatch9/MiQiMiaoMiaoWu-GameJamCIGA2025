@@ -2024,6 +2024,10 @@ MonoBehaviour:
   parentCanvas: {fileID: 1041122417}
   sound: {fileID: 8300000, guid: 0553c9307c7e7a547b2eed9fb5cf0dc1, type: 3}
   audioSource: {fileID: 2037656371}
+  item1: {fileID: 1811922639}
+  item2: {fileID: 1060436858}
+  item3: {fileID: 1650688728}
+  item4: {fileID: 728985466}
 --- !u!4 &734124376
 Transform:
   m_ObjectHideFlags: 0
@@ -2548,6 +2552,7 @@ GameObject:
   - component: {fileID: 1060436862}
   - component: {fileID: 1060436861}
   - component: {fileID: 1060436860}
+  - component: {fileID: 1060436863}
   m_Layer: 5
   m_Name: jiaodai
   m_TagString: Untagged
@@ -2626,6 +2631,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060436858}
   m_CullTransparentMesh: 1
+--- !u!95 &1060436863
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060436858}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 925a5044d79853448915ab267d390c63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1072161873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 405.3, y: 426}
+  m_AnchoredPosition: {x: 678, y: 426}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1194686580
@@ -4385,13 +4411,14 @@ GameObject:
   - component: {fileID: 1650688732}
   - component: {fileID: 1650688731}
   - component: {fileID: 1650688730}
+  - component: {fileID: 1650688733}
   m_Layer: 5
   m_Name: matongshaizi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1650688729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4463,6 +4490,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650688728}
   m_CullTransparentMesh: 1
+--- !u!95 &1650688733
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650688728}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c4b954347cc8c847813bcd651358ccf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1706354740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4976,13 +5024,14 @@ GameObject:
   - component: {fileID: 1811922643}
   - component: {fileID: 1811922642}
   - component: {fileID: 1811922641}
+  - component: {fileID: 1811922644}
   m_Layer: 5
   m_Name: yaokongqi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1811922640
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5054,6 +5103,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811922639}
   m_CullTransparentMesh: 1
+--- !u!95 &1811922644
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811922639}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38d60fd64e54f4a489d0dcd7bd4e1658, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1826581116 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2761393669307890170, guid: 91a8fafdd577dd84abd6fdac6f830266, type: 3}

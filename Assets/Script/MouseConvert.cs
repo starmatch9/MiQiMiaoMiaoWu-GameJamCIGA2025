@@ -12,6 +12,14 @@ public class MouseConvert : MonoBehaviour
     public AudioClip sound;
     public AudioSource audioSource;
 
+    public GameObject item1;
+    public GameObject item2;
+    public GameObject item3;
+    public GameObject item4;
+
+
+
+
     private bool isFollowingRealMouse = false;
 
     void Start()
@@ -138,6 +146,10 @@ public class MouseConvert : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        Animator animator1 = item1.GetComponent<Animator>();
+        animator1.enabled = true;
+
+
         //让他移动到指定位置
         duration = 0.5f;//动画持续时间
         elapsedTime = 0f;
@@ -152,6 +164,8 @@ public class MouseConvert : MonoBehaviour
         cursorImage.sizeDelta = originalSize;
 
         yield return new WaitForSeconds(1f);
+        Animator animator2 = item2.GetComponent<Animator>();
+        animator2.enabled = true;
 
         duration = 0.5f;//动画持续时间
         elapsedTime = 0f;
@@ -166,6 +180,8 @@ public class MouseConvert : MonoBehaviour
         cursorImage.sizeDelta = originalSize;
 
         yield return new WaitForSeconds(1f);
+        Animator animator3 = item3.GetComponent<Animator>();
+        animator3.enabled = true;
 
         duration = 0.5f;//动画持续时间
         elapsedTime = 0f;
@@ -180,6 +196,8 @@ public class MouseConvert : MonoBehaviour
         cursorImage.sizeDelta = originalSize;
 
         yield return new WaitForSeconds(1f);
+        Animator animator4 = item4.GetComponent<Animator>();
+        animator4.enabled = true;
 
 
         duration = 0.5f;//动画持续时间
