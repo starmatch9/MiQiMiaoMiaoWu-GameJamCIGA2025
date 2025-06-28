@@ -34,7 +34,7 @@ public class MouseConvert : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // 0=左键, 1=右键, 2=中键
         {
             Vector2 mousePosition = Input.mousePosition;
-            Debug.Log("鼠标点击屏幕坐标: " + mousePosition);
+            //Debug.Log("鼠标点击屏幕坐标: " + mousePosition);
         }
 
     }
