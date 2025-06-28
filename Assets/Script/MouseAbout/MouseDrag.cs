@@ -71,6 +71,11 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         isDragging = false;
         rectTransform.anchoredPosition = originalPosition;
+
+        //以下代码检测是否点击到对应位置
+        Match();
+
+
     }
 
     //更新图标的位置
@@ -94,6 +99,25 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         {
             audioSource.PlayOneShot(sound);
         }
+
+    }
+
+    void Match()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Collider2D hit = Physics2D.OverlapPoint(mousePos);
+
+        //是鱼的话
+        if (gameObject.name == "fish")
+        {
+            if (hit != null && hit.gameObject.name == "TEST")
+            {
+                Debug.Log("鼠标拿着鱼，点击了 2D 对象 TEST");
+                BubbleShow bubble = hit.gameObject.GetComponent<BubbleShow>();
+                StartCoroutine(bubble.ShowBubble());
+            }
+        }
+
 
     }
 }
