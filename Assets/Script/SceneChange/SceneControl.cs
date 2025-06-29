@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour
 {
+
+    private void Awake()
+    {
+        Cursor.visible = true;
+    }
+
     public void QuitGame()
     {
         Application.Quit();
