@@ -143,7 +143,7 @@ public class MouseDrag : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
                 {
                     if (child.name == "fish" && child != transform) // 确保不是自己
                     {
-                        Debug.Log("找到fish物体: " + child.gameObject.name);
+                        //Debug.Log("找到fish物体: " + child.gameObject.name);
                         //使用child.gameObject进行后续操作
                         fishhh = child.gameObject;
                         break;

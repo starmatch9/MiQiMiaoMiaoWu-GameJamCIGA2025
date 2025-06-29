@@ -21,7 +21,16 @@ public class MouseConvert : MonoBehaviour
     public GameObject item3;
     public GameObject item4;
 
+    public GameObject Arror1;
+    public GameObject Arror2;
 
+    public Animator ZhuoZi;
+    public Animator GuiZi;
+
+    public Animator remenuUI;
+    public Sprite UI1;
+    public Animator arrorUI;
+    public Sprite UI2;
 
 
     private bool isFollowingRealMouse = false;
@@ -97,6 +106,34 @@ public class MouseConvert : MonoBehaviour
 
     public IEnumerator Display()
     {
+        if (Arror2.activeInHierarchy)
+        {
+            isFollowingRealMouse = false;
+
+            Vector2 ori = cursorImage.anchoredPosition;
+            //让他移动到指定位置
+            float d = 1f;//动画持续时间
+            float eT = 0f;
+            Vector2 newPosition = new Vector2(-786, -67);
+            while (eT < d)
+            {
+                float t = eT / d;
+                cursorImage.anchoredPosition = Vector2.Lerp(ori, newPosition, t);
+                eT += Time.deltaTime;
+                yield return null;
+            }
+            cursorImage.anchoredPosition = newPosition;
+
+            yield return new WaitForSeconds(0.5f);
+
+            Button but = Arror2.GetComponent<Button>();
+            but.onClick.Invoke();
+
+            yield return new WaitForSeconds(1f);
+
+
+        }
+
         // 记录原始大小和位置
         Vector2 originalSize = cursorImage.sizeDelta;
         Vector2 originalPosition = cursorImage.anchoredPosition;
@@ -114,6 +151,9 @@ public class MouseConvert : MonoBehaviour
         float elapsedTime = 0f;
 
         isFollowingRealMouse = false;
+
+        //强制刷新布局（好像并没有什么卵用）
+        LayoutRebuilder.ForceRebuildLayoutImmediate(cursorImage.GetComponent<RectTransform>());
 
         while (elapsedTime < duration)
         {
@@ -229,7 +269,7 @@ public class MouseConvert : MonoBehaviour
 
         duration = 0.5f;//动画持续时间
         elapsedTime = 0f;
-        Vector2 newPosition5 = new Vector2(829, 21);
+        Vector2 newPosition5 = new Vector2(-641, -140);
         while (elapsedTime < duration)
         {
             float t = elapsedTime / duration;
@@ -239,19 +279,90 @@ public class MouseConvert : MonoBehaviour
         }
         cursorImage.sizeDelta = originalSize;
 
+        yield return new WaitForSeconds(1f);
+        ZhuoZi.enabled = true;
+
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition6 = new Vector2(475, -333);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition5, newPosition6, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
+        GuiZi.enabled = true;
+
+        //激活箭头
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition7 = new Vector2(883, -41);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition6, newPosition7, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
+
+        Image h2 = arrorUI.transform.gameObject.GetComponent<Image>();
+        h2.sprite = UI2;
+
+        yield return new WaitForSeconds(1f);
+        arrorUI.enabled = true;
+
+        //激活菜单
+        duration = 0.5f;//动画持续时间
+        elapsedTime = 0f;
+        Vector2 newPosition8 = new Vector2(-825, 444);
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            cursorImage.anchoredPosition = Vector2.Lerp(newPosition7, newPosition8, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        cursorImage.sizeDelta = originalSize;
+
+        yield return new WaitForSeconds(1f);
+
+        Image h1 = remenuUI.transform.gameObject.GetComponent<Image>();
+        h1.sprite = UI1;
+
+        yield return new WaitForSeconds(1f);
+        remenuUI.enabled = true;
+        
+        //结束
         yield return new WaitForSeconds(2f);
 
 
         elapsedTime = 0f;
         cover.transform.gameObject.SetActive(true);
-        while (elapsedTime < 6f)
+        while (elapsedTime < 4f)
         {
-            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 6f);
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime / 4f);
             cover.color = new Color(0, 0, 0, alpha);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
         cover.color = Color.black;
+
+        yield return new WaitForSeconds(3f);
+
+
+
+
+
+
+        //回到主菜单
+        //
 
         //isFollowingRealMouse = true;
     }
