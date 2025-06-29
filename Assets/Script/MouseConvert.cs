@@ -360,9 +360,10 @@ public class MouseConvert : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
 
-        SceneManager.LoadScene("MainMenu");
-        EventSystem.current.enabled = true;
+        //SceneManager.LoadScene("MainMenu");
+        //EventSystem.current.enabled = true;
 
+        A.StaticMembers.changeSce();
 
         //回到主菜单
 
