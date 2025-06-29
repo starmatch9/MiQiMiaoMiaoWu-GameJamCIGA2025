@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MouseConvert : MonoBehaviour
@@ -106,6 +107,8 @@ public class MouseConvert : MonoBehaviour
 
     public IEnumerator Display()
     {
+        EventSystem.current.enabled = false;
+
         if (Arror2.activeInHierarchy)
         {
             isFollowingRealMouse = false;
@@ -357,8 +360,7 @@ public class MouseConvert : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
 
-
-
+        EventSystem.current.enabled = true;
 
 
         //回到主菜单
